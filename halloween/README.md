@@ -7,7 +7,7 @@ Halloween Sound Effects
 ```
 $ crontab -e
 
-@reboot python3 /home/pi/projects/halloween/script.py &
+@reboot /home/pi/projects/halloween/start.py
 ```
 
 2. On Raspberry Pi, set default audio to 3.5mm audio jack.
