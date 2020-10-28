@@ -28,7 +28,18 @@ O, O, O, O, O, O, O, O,
 O, O, O, X, O, O, O, O
 ]
 
-sense.set_pixels(question_mark)
+isaac = [
+O, X, X, X, X, X, X, O,
+O, X, X, X, X, X, X, O,
+O, O, O, X, X, O, O, O,
+O, O, O, X, X, O, O, O,
+O, O, O, X, X, O, O, O,
+O, O, O, X, X, O, O, O,
+O, X, X, X, X, X, X, O,
+O, X, X, X, X, X, X, O
+]
+
+sense.set_pixels(isaac)
 
 run = True
 
@@ -36,11 +47,13 @@ while run:
     sleep(0.1)
     event = sense.stick.wait_for_event()
     print("The joystick was {} {}".format(event.action, event.direction))
-    sleep(0.1)
 
     if event.action == "pressed":
-        if event.direction == "up":
+        if event.direction == "middle":
             run = False
+
+        if event.direction == "up":
+            play_file("/home/pi/projects/halloween/Effects/owl.wav")
 
         if event.direction == "down":
             play_file("/home/pi/projects/halloween/Effects/evillaff4.wav")
