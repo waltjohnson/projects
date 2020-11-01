@@ -119,7 +119,7 @@ class halloween:
 
             self.check_gpio_toggle(self.pin_beam, level_beam)
             self.check_gpio_toggle(self.pin_doorbell, level_doorbell, test_level=1)
-            self.check_gpio_toggle(self.pin_dooropen, level_dooropen)    
+            self.check_gpio_toggle(self.pin_dooropen, level_dooropen, test_level=1)    
             self.check_gpio_toggle(self.pin_other, level_other)
 
             self.blink_red_eyes()
