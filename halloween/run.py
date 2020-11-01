@@ -39,10 +39,10 @@ class halloween:
             self.sense.set_pixel(7,3,0,255,0)
             self.play_file("/home/pi/projects/halloween/Effects/Raven_Sound_Clip.mp3")
 
-    def check_gpio_toggle(self, pin, level_last):
+    def check_gpio_toggle(self, pin, level_last, test_level=0):
         level = GPIO.input(pin)
         # print("Level: %d %d" % (level, level_last[0]))
-        if level==0 and level_last[0]==1:
+        if level==test_level and level_last[0]!=test_level:
             print("GPIO %d event" % (pin))
             self.handle_event(pin)
         level_last[0] = level
@@ -118,7 +118,7 @@ class halloween:
                 self.sense.set_pixel(7,i,0,0,0)
 
             self.check_gpio_toggle(self.pin_beam, level_beam)
-            self.check_gpio_toggle(self.pin_doorbell, level_doorbell)
+            self.check_gpio_toggle(self.pin_doorbell, level_doorbell, test_level=1)
             self.check_gpio_toggle(self.pin_dooropen, level_dooropen)    
             self.check_gpio_toggle(self.pin_other, level_other)
 
