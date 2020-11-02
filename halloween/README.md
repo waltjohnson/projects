@@ -24,3 +24,8 @@ hdmi_force_hotplug=1
 ```
 
 
+# ToDo's (- do, + done)
+- Ensure fast GPIO input events get caught by either changing GPIO input sampling to external interrupt or reduce sample rate from 0.2 to 0.01 seconds and add I/O debounce. 
+- Add fog machine to GPIO output.
+
+
